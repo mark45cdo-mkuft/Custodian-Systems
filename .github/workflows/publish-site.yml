@@ -28,19 +28,73 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: public-site
+
       - name: Configure and enable GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Prepare public artifact
         run: |
           mkdir -p _site
           cp index.html _site/index.html
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('_site/index.html')
+          text = path.read_text(encoding='utf-8')
+
+          replacements = {
+              'Structural reasoning for complex systems': 'Practical help for small businesses and complex organisations',
+              'See the structure. Improve the decision.': 'Solve the problem. Improve the business.',
+              'Custodian Systems helps organisations understand difficult objects as wholes: technical, human, operational and cross-domain. The aim is not a clever answer that expires. It is a stronger object that can keep working.': 'Custodian Systems helps small businesses and organisations solve difficult practical problems: improving workflows, fixing technical bottlenecks, using AI sensibly, building useful software, reviewing decisions and finding the real cause when the obvious fix has not worked.',
+              'Most services solve the visible task. We work to understand the object that produced it.': 'Bring us the problem that keeps costing time, money or attention.',
+              'That means the system, the people inside it, the consequences, the routes, and what must remain coherent after the intervention.': 'We identify what is actually going wrong, what can be changed safely, and the clearest useful next action. You do not need to understand ATLD or systems theory to work with us.',
+              'Capability that lasts beyond the answer.': 'What we can actually help you do.',
+              'We focus on the benefits clients can see and carry forward: clearer structure, stronger reasoning, better routes and more useful action.': 'Start with the business problem in ordinary language. We can help diagnose it, improve the process, build or repair the technical part, and leave you with a result you can use.',
+              'Understand the whole object': 'Find the real cause',
+              'See how technical, human and operational parts affect one another before acting on only the visible symptom.': 'Trace repeated delays, errors, wasted effort or customer problems back to the part of the business that is actually causing them.',
+              'Keep long chains coherent': 'Improve everyday workflows',
+              'Maintain important constraints and relationships across extended work instead of rebuilding the same context repeatedly.': 'Simplify handovers, repeat work, administration and multi-step processes so fewer things are forgotten, duplicated or dropped.',
+              'Work across domains': 'Use AI where it genuinely helps',
+              'Connect useful structure without pretending that different disciplines are the same thing.': 'Choose and shape practical AI support for research, documents, customer work, internal knowledge or repetitive tasks without buying theatre.',
+              'Make better decisions': 'Make difficult decisions clearer',
+              'Clarify what matters, what carries weight, what remains uncertain and what should happen next.': 'Separate facts, assumptions, risks and options so you can see what matters and what should happen next.',
+              'Build lasting capability': 'Build or repair useful software',
+              'Turn successful work into reusable architecture, tools and systems rather than one-off answers.': 'Create small tools, prototypes and working systems—or diagnose why an existing technical route is failing.',
+              'Do more': 'Get an independent second look',
+              'Translate understanding into useful action, repair and progress without theatrical promises.': 'Bring a stalled plan, supplier proposal, technical problem or confusing situation and receive a direct assessment with practical next steps.',
+          }
+
+          missing = []
+          for old, new in replacements.items():
+              if old not in text:
+                  missing.append(old)
+              else:
+                  text = text.replace(old, new, 1)
+
+          if missing:
+              raise SystemExit('Small-business copy anchors missing: ' + ' | '.join(missing))
+
+          path.write_text(text, encoding='utf-8')
+          PY
           touch _site/.nojekyll
+
+      - name: Verify public artifact
+        run: |
+          grep -Fq 'Solve the problem. Improve the business.' _site/index.html
+          grep -Fq 'What we can actually help you do.' _site/index.html
+          grep -Fq 'You do not need to understand ATLD or systems theory to work with us.' _site/index.html
+          grep -Fq 'Find the real cause' _site/index.html
+          grep -Fq 'Improve everyday workflows' _site/index.html
+          grep -Fq 'Use AI where it genuinely helps' _site/index.html
+          grep -Fq 'Build or repair useful software' _site/index.html
+
       - name: Upload public artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
