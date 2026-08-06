@@ -2,7 +2,7 @@ name: Publish Custodian Systems
 
 on:
   push:
-    branches: [main]
+    branches: [public-site]
     paths:
       - index.html
       - .github/workflows/publish-site.yml
@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Check out public site
         uses: actions/checkout@v4
+        with:
+          ref: public-site
       - name: Configure and enable GitHub Pages
         uses: actions/configure-pages@v5
         with:
