@@ -4,7 +4,13 @@ Official public website for **Custodian Systems Ltd** (Company No. **SC898371**)
 
 **Website:** https://mark45cdo-mkuft.github.io/Custodian-Systems/
 
-This repository contains only the published website artifact. It does not contain internal development architecture, private workflows, protected methods, prompts, or private research materials.
+This repository contains the public website material. It does not contain internal development architecture, private workflows, protected methods, prompts, or private research materials.
+
+## Publication route
+
+GitHub Pages publishes the live website from the **`public-site`** branch. `main` is the source/administrative branch. A website change is not treated as published merely because it was written to `main`; the corresponding public-site state must be updated deliberately and the Pages build verified.
+
+The repository does not use a second GitHub Actions deployment path for Pages. This keeps publication ownership with the configured `public-site` source rather than maintaining competing deploy routes.
 
 ## Public-benefit relationship
 
