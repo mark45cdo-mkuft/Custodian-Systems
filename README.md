@@ -18,12 +18,14 @@ Commercial and research development are not the only intended uses of Custodian 
 
 Custodian Systems currently supports the development of **Custodian Safe Passage**, a separate community-benefit initiative focused on safer ordinary journeys for people who may feel unable to make them alone. Safe Passage retains its own mission, safeguarding, governance, service criteria and stop conditions; company support does not turn it into a commercial security service or confer authority on its volunteers.
 
-The publication-intended Safe Passage repository is currently being prepared privately and will be linked here once it is deliberately made public.
+Custodian Safe Passage now has a deliberate public-development surface: [public website](https://mark45cdo-mkuft.github.io/Custodian-Safe-Passage-Official-Public/) and [public repository](https://github.com/mark45cdo-mkuft/Custodian-Safe-Passage-Official-Public). It remains pre-pilot and retains its own mission, safeguarding, governance, service criteria and stop conditions.
 
 ## Rights and ownership
 
 Copyright in the published website material is held by the relevant rights-holder identified in the site notice.
 
-Certain foundational works, including MKUFT, ATLD, Kairos/Excalibur and related pre-incorporation research, software, documentation and visual works, are pre-existing intellectual property of **Mark Charles McLaughlin**. Custodian Systems Ltd may use such material under licence where applicable. Incorporation of Custodian Systems Ltd does not by itself transfer ownership of those pre-existing works to the company.
+Certain foundational works, including [MKUFT](https://github.com/mark45cdo-mkuft/MKUFT), ATLD, Kairos/Excalibur and related pre-incorporation research, software, documentation and visual works, are pre-existing intellectual property of **[Mark Charles McLaughlin](https://orcid.org/0009-0005-7736-1511)**. Custodian Systems Ltd may use such material under licence where applicable. Incorporation of Custodian Systems Ltd does not by itself transfer ownership of those pre-existing works to the company.
+
+Professional identity: [ORCID](https://orcid.org/0009-0005-7736-1511) · [LinkedIn](https://www.linkedin.com/in/custodiansystems45/) · [MKUFT — Layer Before Law](https://github.com/mark45cdo-mkuft/MKUFT/blob/main/LAYER_BEFORE_LAW_STANDALONE_PUBLICATION.md)
 
 Third-party and open-source material, where present, remains subject to its own applicable licence terms.
