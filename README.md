@@ -6,6 +6,12 @@ Official public website for **Custodian Systems Ltd** (Company No. **SC898371**)
 
 This repository contains the public website material. It does not contain internal development architecture, private workflows, protected methods, prompts, or private research materials.
 
+## Machine reasoning-boundary handshake
+
+Before using this repository as a development, debugging, comparison, example, or publication surface, read `00-REASONING_BOUNDARY_HANDSHAKE.md`.
+
+The repository may itself be the task object, but it is not the Kairos/K3/Excalibur/ATLD reasoning architecture. Repository traversal is local task work; every material result must return to the governing live object and receiver-side completion condition before the next route or closure decision.
+
 ## Publication route
 
 GitHub Pages publishes the live website from the **`public-site`** branch. `main` is the source/administrative branch. A website change is not treated as published merely because it was written to `main`; the corresponding public-site state must be updated deliberately and the Pages build verified.
